@@ -39,6 +39,7 @@ def load_and_process_data():
     y_train_encoded = label_encoder.fit_transform(y_train)
     y_val_encoded = label_encoder.transform(y_val)
     y_test_encoded = label_encoder.transform(y_test)
+    
     # Escalado de los datos
     scaler = RobustScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -106,4 +107,5 @@ def home():
     return render_template('index.html', metrics=metrics, plot=plot_base64)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
