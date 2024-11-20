@@ -17,7 +17,7 @@ app = Flask(__name__)
 # Función para cargar y procesar el dataset
 def load_and_process_data():
     # Leer el dataset
-    df = pd.read_csv("datasets/reduced_dataset.csv")
+    df = pd.read_csv("datasets/archivo_reducido.csv")
 
     # Dividir el DataSet en entrenamiento, validación y test
     def train_val_test_split(df, rstate=42, shuffle=True, stratify=None):
